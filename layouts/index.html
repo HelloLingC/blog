@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+<main>
+  <header class="home-hero">
+    {{ .Content }}
+  </header>
+
+  <div class="home-layout">
+    <section class="home-main">
+      <h2 class="home-section-title">Recent Posts</h2>
+
+      <ul class="post-list">
+        {{ range (where .Site.RegularPages "Section" "post") }}
+        <li>
+          <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+          <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+
+    {{ partial "sidebar.html" . }}
+  </div>
+</main>
+
+{{ partial "footer.html" . }}

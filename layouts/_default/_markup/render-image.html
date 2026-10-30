@@ -1,0 +1,18 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $src := .Destination -}}
+{{- $style := "" -}}
+{{- with $u.Fragment -}}
+  {{- $src = strings.TrimSuffix (printf "#%s" .) $src -}}
+  {{- if eq . "small" -}}
+    {{- $style = "max-width: 320px;" -}}
+  {{- else if eq . "medium" -}}
+    {{- $style = "max-width: 500px;" -}}
+  {{- else if eq . "large" -}}
+    {{- $style = "max-width: 100%;" -}}
+  {{- else if strings.HasPrefix . "w=" -}}
+    {{- $style = printf "max-width: %s;" (strings.TrimPrefix "w=" .) -}}
+  {{- else if strings.HasPrefix . "width=" -}}
+    {{- $style = printf "max-width: %s;" (strings.TrimPrefix "width=" .) -}}
+  {{- end -}}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $style }} style="{{ . | safeCSS }}"{{ end }} loading="lazy" />

@@ -1,0 +1,151 @@
+/* Table of contents */
+.toc {
+  margin: 1.75em 0;
+  padding: 0.85em 1.15em;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  font-size: 0.95em;
+}
+.toc-title {
+  margin: 0 0 0.35em;
+  font-weight: bold;
+  color: #444;
+}
+.toc nav#TableOfContents > ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.toc nav#TableOfContents ul ul {
+  margin: 0.2em 0;
+  padding-left: 1.2em;
+}
+.toc li {
+  margin: 0.2em 0;
+}
+.toc a {
+  text-decoration: none;
+}
+.toc a:hover {
+  text-decoration: underline;
+}
+
+/* Homepage layout with taxonomy sidebar */
+.home-hero {
+  margin-bottom: 1.25em;
+}
+.home-section-title {
+  margin: 0 0 0.5em;
+  font-size: 1.17em;
+}
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 2.5em;
+  align-items: start;
+}
+.home-main {
+  min-width: 0;
+}
+.sidebar {
+  position: sticky;
+  top: 1em;
+  font-size: 0.9em;
+}
+.widget + .widget {
+  margin-top: 1.75em;
+}
+.widget h2 {
+  margin: 0 0 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 1em;
+}
+.widget h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+.widget h2 a:hover {
+  text-decoration: underline;
+}
+.widget ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.widget li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5em;
+  padding: 0.3em 0;
+}
+.widget li + li {
+  border-top: 1px dashed #eee;
+}
+.widget li a {
+  text-decoration: none;
+}
+.widget li a:hover {
+  text-decoration: underline;
+}
+.widget .count {
+  color: #999;
+  font-size: 0.85em;
+}
+
+@media (max-width: 720px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+  .sidebar {
+    position: static;
+  }
+}
+
+/* Code blocks & syntax highlighting */
+.highlight {
+  margin: 1.2em 0;
+}
+.highlight pre {
+  border-radius: 6px;
+  line-height: 1.5;
+  font-size: 0.9em;
+}
+:not(pre) > code {
+  background: #f0f0f0;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+
+/* Article image styling */
+main img,
+figure.image-container img {
+  max-width: 70%;
+  max-height: 480px;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+figure.image-container {
+  margin: 1.5em auto;
+  text-align: center;
+}
+
+figure.image-container figcaption {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 0.5em;
+}
+
+@media (max-width: 720px) {
+  main img,
+  figure.image-container img {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,30 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title | markdownify }}</h1>
+
+{{ .Content }}
+
+{{ if .Sections }}
+  {{ range .Sections.ByWeight }}
+  <h2><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h2>
+  {{ with .Content }}{{ . }}{{ end }}
+  <ul>
+    {{ range .RegularPages.ByWeight }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+{{ else }}
+  <ul>
+    {{ range .RegularPages.ByWeight }}
+    <li>
+      <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+      <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+    </li>
+    {{ end }}
+  </ul>
+{{ end }}
+
+{{ partial "footer.html" . }}

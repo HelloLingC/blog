@@ -1,0 +1,45 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'My New Hugo Project'
+theme = 'hugo-xmin'
+
+ignoreFiles = ['\\.Rmd$', '\\.Rmarkdown$', '_cache$']
+footnotereturnlinkcontents = '↩'
+
+[permalinks.page]
+post = '/post/:year/:month/:day/:slug/'
+
+[[menu.main]]
+name = 'Home'
+url = '/'
+weight = 1
+
+[[menu.main]]
+name = 'Notes'
+url = '/notes/'
+weight = 3
+
+[[menu.main]]
+name = 'Subscribe'
+url = '/index.xml'
+
+[params]
+description = 'A website built with Hugo and hugo-xmin.'
+footer = '&copy; {Year} | [Github](https://github.com/)'
+
+[markup.highlight]
+codeFences = true
+guessSyntax = true
+lineNos = false
+style = "github"
+noClasses = true
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)'], ['$', '$']]

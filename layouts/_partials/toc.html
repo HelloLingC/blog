@@ -1,0 +1,7 @@
+{{- /* Show a TOC when the post has at least two headings. Set `toc: false` in front matter to opt out. */ -}}
+{{- if and (ne .Params.toc false) (gt (len .Fragments.HeadingsMap) 1) -}}
+<aside class="toc" aria-labelledby="toc-title">
+  <p class="toc-title" id="toc-title">Contents</p>
+  {{ .TableOfContents }}
+</aside>
+{{- end -}}

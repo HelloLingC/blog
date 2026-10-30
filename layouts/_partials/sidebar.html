@@ -1,0 +1,32 @@
+{{- $categories := .Site.Taxonomies.categories -}}
+{{- $tags := .Site.Taxonomies.tags -}}
+{{- if or $categories $tags -}}
+<aside class="sidebar" aria-label="Categories and tags">
+  {{- with $categories }}
+  <section class="widget">
+    <h2><a href="{{ "categories/" | relURL }}">Categories</a></h2>
+    <ul>
+      {{- range . }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="count">{{ .Count }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+  {{- with $tags }}
+  <section class="widget">
+    <h2><a href="{{ "tags/" | relURL }}">Tags</a></h2>
+    <ul>
+      {{- range . }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="count">{{ .Count }}</span>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+</aside>
+{{- end -}}
