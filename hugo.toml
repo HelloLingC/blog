@@ -6,6 +6,10 @@ theme = 'hugo-xmin'
 ignoreFiles = ['\\.Rmd$', '\\.Rmarkdown$', '_cache$']
 footnotereturnlinkcontents = '↩'
 
+[caches]
+[caches.images]
+dir = ':cacheDir/images'
+
 [permalinks.page]
 post = '/post/:year/:month/:day/:slug/'
 
